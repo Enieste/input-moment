@@ -40,7 +40,12 @@ var App = React.createClass({
   },
 
   handleChange(m) {
-    this.setState({ m });
+    var now = moment();
+    if (m > now) {
+      console.warn('Please choose a time in past');
+    } else {
+      this.setState({ m });
+    }
   },
 
   handleSave() {
